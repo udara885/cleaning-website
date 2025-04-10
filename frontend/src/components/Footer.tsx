@@ -1,17 +1,15 @@
-const Footer = ({ p }: { p: string }) => {
+const Footer = () => {
   return (
     <>
-      <div className={`pt-[${p}]`}>
-        <div className="relative">
-          <img src="clean.png" alt="cleaning" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center rounded-4xl bg-black/60">
-            <h2 className="font-inter mb-3 w-[70%] text-center text-2xl font-semibold text-white">
-              Schedule Your Free Estimate Now
-            </h2>
-            <button className="font-poppins w-[9.9375rem] rounded-full bg-[#046BD2] px-8 py-2.5 font-semibold text-white uppercase">
-              Estimate
-            </button>
-          </div>
+      <div className="relative">
+        <img src="clean.png" alt="cleaning" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center rounded-4xl bg-black/60">
+          <h2 className="font-inter mb-3 w-[70%] text-center text-2xl font-semibold text-white">
+            Schedule Your Free Estimate Now
+          </h2>
+          <button className="font-poppins w-[9.9375rem] rounded-full bg-[#046BD2] px-8 py-2.5 font-semibold text-white uppercase">
+            Estimate
+          </button>
         </div>
       </div>
       <div className="-mx-5 -mt-18 flex flex-col items-center bg-[#046BD2]">
