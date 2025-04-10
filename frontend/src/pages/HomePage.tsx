@@ -194,7 +194,9 @@ const HomePage = () => {
             />
           ))}
         </div>
-        <Footer p="3.125rem" />
+        <div className="pt-[3.125rem]">
+          <Footer />
+        </div>
       </div>
     </div>
   )
