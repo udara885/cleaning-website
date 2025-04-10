@@ -1,7 +1,7 @@
-const Footer = () => {
+const Footer = ({ p }: { p: string }) => {
   return (
     <>
-      <div className="pt-[3.125rem]">
+      <div className={`pt-[${p}]`}>
         <div className="relative">
           <img src="clean.png" alt="cleaning" />
           <div className="absolute inset-0 flex flex-col items-center justify-center rounded-4xl bg-black/60">
