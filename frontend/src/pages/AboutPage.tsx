@@ -74,7 +74,9 @@ const AboutPage = () => {
             and beyond.
           </p>
         </div>
-        <Footer p="3.75rem" />
+        <div className="pt-[3.75rem]">
+          <Footer />
+        </div>
       </div>
     </div>
   )
