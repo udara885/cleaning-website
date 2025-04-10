@@ -12,12 +12,12 @@ import { useState } from "react"
 import { Link } from "react-router"
 
 const navItems = [
-  { icon: <House />, label: "Home" },
-  { icon: <LayoutGrid />, label: "About Us" },
-  { icon: <Building2 />, label: "Services" },
-  { icon: <Phone />, label: "Contact Us" },
-  { icon: <Images />, label: "Gallery" },
-  { icon: <Star />, label: "Review" },
+  { icon: <House />, label: "Home", link: "/" },
+  { icon: <LayoutGrid />, label: "About Us", link: "/about" },
+  { icon: <Building2 />, label: "Services", link: "/services" },
+  { icon: <Phone />, label: "Contact Us", link: "/contact" },
+  { icon: <Images />, label: "Gallery", link: "/gallery" },
+  { icon: <Star />, label: "Review", link: "/review" },
 ]
 
 const Navbar = () => {
@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="font-poppins absolute top-30 flex w-screen flex-col text-xl text-white">
             {navItems.map((item, index) => (
               <Link
-                to={"/"}
+                to={item.link}
                 className="flex w-full cursor-pointer items-center gap-5 py-5 pl-20 transition hover:bg-black/20 focus:bg-black/20"
                 key={index}
               >
