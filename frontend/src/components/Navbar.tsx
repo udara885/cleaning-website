@@ -17,7 +17,7 @@ const navItems = [
   { icon: <Building2 />, label: "Services", link: "/services" },
   { icon: <Phone />, label: "Contact Us", link: "/contact" },
   { icon: <Images />, label: "Gallery", link: "/gallery" },
-  { icon: <Star />, label: "Review", link: "/review" },
+  { icon: <Star />, label: "Review", link: "/reviews" },
 ]
 
 const Navbar = () => {
