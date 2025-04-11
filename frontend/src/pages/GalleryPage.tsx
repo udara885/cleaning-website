@@ -41,7 +41,7 @@ const GalleryPage = () => {
               to quality, precision, and customer satisfaction.
             </p>
           </div>
-          <img src="people.png" alt="people" className="" />
+          <img src="people.png" alt="people" />
         </div>
       </div>
       <div className="font-poppins relative z-20 bg-white px-5">
@@ -50,7 +50,7 @@ const GalleryPage = () => {
             <img src={image} key={index} className="h-[33.625rem]" />
           ))}
         </div>
-        <div className="mt-[3.75rem]">
+        <div className="mt-15">
           <Footer />
         </div>
       </div>
