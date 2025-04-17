@@ -80,7 +80,7 @@ const HomePage = () => {
   return (
     <div className="h-screen w-full text-[#001E3D]">
       <div className="relative h-[728px] w-full">
-        <div className="fixed inset-0 z-0 bg-[url(/hero.png)] bg-cover bg-center bg-no-repeat">
+        <div className="fixed inset-0 z-0 bg-[url(/src/assets/hero.png)] bg-cover bg-center bg-no-repeat">
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="font-poppins relative z-10 flex flex-col items-start gap-1 px-5 pt-39 text-white">
@@ -110,7 +110,7 @@ const HomePage = () => {
           {reasons.map((reason, index) => (
             <div key={index} className="flex gap-4">
               <div className="flex h-14 w-16 items-center justify-center rounded-full bg-[#D0D9FF] p-4">
-                <img src={reason.icon} alt={reason.title} />
+                <img src={`/src/assets/${reason.icon}`} alt={reason.title} />
               </div>
               <div className="w-full">
                 <h2 className="text-xl font-semibold uppercase">
@@ -121,7 +121,7 @@ const HomePage = () => {
             </div>
           ))}
         </div>
-        <img className="mx-auto pt-16" src="cleaner.png" alt="cleaner" />
+        <img className="mx-auto pt-16" src="/src/assets/cleaner.png" alt="cleaner" />
         <h2 className="pt-4 text-xl font-semibold uppercase">
           We deliver top-tier cleaning services tailored just for you!
         </h2>
@@ -152,7 +152,7 @@ const HomePage = () => {
                 "ruhunu.png",
                 "sy.png",
               ].map((img, index) => (
-                <img src={img} key={index} className="h-20" />
+                <img src={`/src/assets/${img}`} key={index} className="h-20" />
               ))}
             </div>
           </div>

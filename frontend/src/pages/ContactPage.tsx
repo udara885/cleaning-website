@@ -32,12 +32,12 @@ const ContactPage = () => {
               satisfaction.
             </p>
           </div>
-          <img src="people.png" alt="people" />
+          <img src="/src/assets/people.png" alt="people" />
         </div>
       </div>
       <div className="font-poppins relative z-20 bg-white px-5">
         <div className="pt-15">
-          <img src="map.png" alt="map" />
+          <img src="/src/assets/map.png" alt="map" />
           <form className="mt-4 flex flex-col gap-2">
             <div className="flex flex-col gap-1">
               <label htmlFor="fname">First Name</label>

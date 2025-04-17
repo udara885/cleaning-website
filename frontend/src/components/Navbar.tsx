@@ -32,7 +32,7 @@ const Navbar = () => {
           onClick={() => setOpen(true)}
         />
         <img
-          src="./logo.png"
+          src="/src/assets/logo.png"
           alt="logo"
           className="h-14 cursor-pointer object-cover"
         />
@@ -49,8 +49,9 @@ const Navbar = () => {
             {navItems.map((item, index) => (
               <Link
                 to={item.link}
-                className="flex w-full cursor-pointer items-center gap-5 py-5 pl-20 transition hover:bg-black/20 focus:bg-black/20"
+                className="flex w-full cursor-pointer items-center gap-5 py-5 pl-20 transition focus:bg-black/20"
                 key={index}
+                onClick={() => setOpen(false)}
               >
                 <span>{item.icon}</span>
                 <span>{item.label}</span>

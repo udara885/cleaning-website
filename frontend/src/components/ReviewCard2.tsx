@@ -5,7 +5,7 @@ const ReviewCard2 = () => {
     <div className="font-manrope mt-9 mb-12 px-4 pt-4 pb-1">
       <div className="flex gap-4">
         <img
-          src="reviewcardimg.png"
+          src="/src/assets/reviewcardimg.png"
           className="size-10 rounded-full object-cover"
         />
         <div className="flex flex-col gap-1">

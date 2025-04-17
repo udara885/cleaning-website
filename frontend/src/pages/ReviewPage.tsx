@@ -31,7 +31,7 @@ const ReviewPage = () => {
               across industries worldwide.
             </p>
           </div>
-          <img src="people.png" alt="people" />
+          <img src="/src/assets/people.png" alt="people" />
         </div>
       </div>
       <div className="font-poppins relative z-20 bg-white px-5">

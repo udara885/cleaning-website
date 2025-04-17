@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <>
       <div className="relative">
-        <img src="clean.png" alt="cleaning" />
+        <img src="/src/assets/clean.png" alt="cleaning" className="w-full"/>
         <div className="absolute inset-0 flex flex-col items-center justify-center rounded-4xl bg-black/60">
           <h2 className="font-inter mb-3 w-[70%] text-center text-2xl font-semibold text-white">
             Schedule Your Free Estimate Now
@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="-mx-5 -mt-18 flex flex-col items-center bg-[#046BD2]">
-        <img src="logo.png" alt="logo" className="mt-24 w-[11.3125rem]" />
+        <img src="/src/assets/logo.png" alt="logo" className="mt-24 w-[11.3125rem]" />
         <p className="px-6 text-center text-xs text-white capitalize">
           Experience the Wisdom Clean difference—enjoy a spotless space that
           brings peace of mind. Let us handle the cleaning, so you can focus on
@@ -59,7 +59,7 @@ const Footer = () => {
               "linkedin.png",
               "x.png",
             ].map((img, index) => (
-              <img key={index} className="h-7" src={img} />
+              <img key={index} className="h-7" src={`/src/assets/${img}`} />
             ))}
           </div>
           <span className="mt-4 text-[0.6875rem] font-medium text-white">

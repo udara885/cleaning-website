@@ -48,7 +48,7 @@ const AboutPage = () => {
           ))}
         </div>
         <div className="mt-[2.375rem]">
-          <img src="meet.png" alt="meeting" />
+          <img src="/src/assets/meet.png" alt="meeting" />
           <h3 className="mt-2 font-semibold uppercase">
             Melbourne’s Premier Cleaning Service
           </h3>
@@ -63,7 +63,7 @@ const AboutPage = () => {
           </p>
         </div>
         <div className="mt-[3.125rem]">
-          <img src="hands.png" alt="hands together" />
+          <img src="/src/assets/hands.png" alt="hands together" />
           <h2 className="mt-4 text-xl font-semibold uppercase">Our Story</h2>
           <p className="mt-1 text-sm capitalize">
             Wisdom Clean was founded with a clear mission—to redefine industry

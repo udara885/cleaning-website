@@ -51,7 +51,7 @@ const ServicesPage = () => {
               environment every time.
             </p>
           </div>
-          <img src="people.png" alt="people" className="" />
+          <img src="/src/assets/people.png" alt="people" className="" />
         </div>
       </div>
       <div className="font-poppins relative z-20 bg-white px-5">
@@ -61,7 +61,7 @@ const ServicesPage = () => {
               className="rounded-[1.25rem] px-6 pt-7 pb-[5.75rem] shadow-[-4px_4px_4px_0_rgba(0,0,0,0.05)]"
               key={index}
             >
-              <img src={service.image} alt={service.title} />
+              <img src={`/src/assets/${service.image}`} alt={service.title} />
               <h2 className="mt-5 text-xl font-semibold">{service.title}</h2>
               <p className="mt-1 text-sm capitalize">{service.description}</p>
             </div>
