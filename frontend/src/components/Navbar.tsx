@@ -28,7 +28,7 @@ const Navbar = () => {
       <nav className="flex w-full items-center justify-between px-7">
         <Menu
           size={35}
-          className="cursor-pointer text-white"
+          className="cursor-pointer text-white md:hidden"
           onClick={() => setOpen(true)}
         />
         <img
@@ -36,6 +36,20 @@ const Navbar = () => {
           alt="logo"
           className="h-14 cursor-pointer object-cover"
         />
+        <div className="hidden gap-13.75 md:flex">
+          {navItems.map((item, index) => (
+            <Link
+              key={index}
+              to={item.link}
+              className="font-medium text-white uppercase text-shadow-lg"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <button className="hidden rounded-4xl bg-[#046BD2] px-7.75 py-2.5 text-sm font-semibold text-white uppercase lg:block">
+          Get a Quote
+        </button>
       </nav>
       {open && (
         <div className="fixed inset-0 z-50 h-screen w-screen bg-[#046BD2]">
