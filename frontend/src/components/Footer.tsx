@@ -23,7 +23,7 @@ const Footer = () => {
           <img
             src="/src/assets/logo.png"
             alt="logo"
-            className="mt-24 w-45.25"
+            className="mt-24 w-45.25 lg:-mx-8"
           />
           <p className="px-6 text-center text-xs text-white capitalize lg:px-0 lg:text-left">
             Experience the Wisdom Clean difference—enjoy a spotless space that
@@ -31,7 +31,7 @@ const Footer = () => {
             on what matters.
           </p>
         </div>
-        <div className="mt-8 grid w-full grid-cols-3 gap-2 px-14 lg:mt-0 lg:w-auto lg:gap-x-10 lg:pt-10">
+        <div className="mt-8 grid w-full grid-cols-3 gap-x-14 gap-y-2 px-14 lg:mt-0 lg:w-auto lg:gap-x-10 lg:pt-10">
           {["home", "services", "contact us", "about us", "projects"].map(
             (item, index) => (
               <Link
