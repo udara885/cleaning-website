@@ -24,7 +24,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 z-50 flex h-[5.6875rem] w-full items-center border-b-2 border-gray-400 backdrop-blur-xs">
+    <header className="fixed top-0 left-0 z-50 flex h-22.75 w-screen items-center border-b-2 border-gray-400 backdrop-blur-xs">
       <nav className="flex w-full items-center justify-between px-7">
         <Menu
           size={35}
@@ -47,7 +47,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <button className="hidden rounded-4xl bg-[#046BD2] px-7.75 py-2.5 text-sm font-semibold text-white uppercase lg:block">
+        <button className="hidden cursor-pointer rounded-4xl bg-[#046BD2] px-7.75 py-2.5 text-sm font-semibold text-white uppercase lg:block">
           Get a Quote
         </button>
       </nav>
