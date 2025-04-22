@@ -18,12 +18,12 @@ const Footer = () => {
           </button>
         </div>
       </div>
-      <div className="-mx-5 -mt-18 flex flex-col items-center bg-[#046BD2] lg:-mx-20 lg:flex-row lg:px-20">
-        <div className="flex flex-col items-center lg:items-start">
+      <div className="-mx-5 -mt-18 flex flex-col items-center bg-[#046BD2] lg:-mx-20 lg:flex-row lg:justify-between lg:px-20">
+        <div className="flex flex-col items-center lg:-mt-10 lg:w-95 lg:items-start">
           <img
             src="/src/assets/logo.png"
             alt="logo"
-            className="mt-24 w-[11.3125rem]"
+            className="mt-24 w-45.25"
           />
           <p className="px-6 text-center text-xs text-white capitalize lg:px-0 lg:text-left">
             Experience the Wisdom Clean difference—enjoy a spotless space that
@@ -31,7 +31,7 @@ const Footer = () => {
             on what matters.
           </p>
         </div>
-        <div className="mt-8 grid grid-cols-3 gap-2 px-14 lg:mt-24">
+        <div className="mt-8 grid w-full grid-cols-3 gap-2 px-14 lg:mt-0 lg:w-auto lg:gap-x-10 lg:pt-10">
           {["home", "services", "contact us", "about us", "projects"].map(
             (item, index) => (
               <Link
@@ -65,9 +65,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="-mx-5 flex flex-col items-center bg-[#075BAE] pt-1 pb-[0.625rem] lg:-mx-20">
-        <div className="flex flex-col items-center">
-          <span className="mb-1 text-xs font-semibold text-white">
+      <div className="-mx-5 flex flex-col items-center bg-[#075BAE] pt-1 pb-[0.625rem] lg:-mx-20 lg:flex-row lg:justify-between lg:px-20 lg:pt-1.75">
+        <div className="flex flex-col items-center lg:flex-row lg:gap-1.25">
+          <span className="mb-1 text-xs font-semibold text-white lg:mb-0">
             Follow Us :
           </span>
           <div className="flex gap-0.5">
@@ -82,7 +82,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <span className="mt-4 text-[0.6875rem] font-medium text-white">
+        <span className="mt-4 text-[0.6875rem] font-medium text-white lg:mt-0">
           All copyrights reserved by WISDOM CLEAN Limited - © 2025
         </span>
       </div>
