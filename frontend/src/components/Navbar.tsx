@@ -9,7 +9,7 @@ import {
   X,
 } from "lucide-react"
 import { useState } from "react"
-import { Link } from "react-router"
+import { Link, useLocation } from "react-router"
 
 const navItems = [
   { icon: <House />, label: "Home", link: "/" },
@@ -22,6 +22,8 @@ const navItems = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
+
+  const location = useLocation().pathname
 
   return (
     <header className="fixed top-0 left-0 z-50 flex h-22.75 w-screen items-center border-b-2 border-gray-400 backdrop-blur-xs">
@@ -47,7 +49,9 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <button className="hidden cursor-pointer rounded-4xl bg-[#046BD2] px-7.75 py-2.5 text-sm font-semibold text-white uppercase lg:block">
+        <button
+          className={`hidden cursor-pointer rounded-4xl ${location === "/" ? "bg-[#046BD2] text-white" : "bg-white text-black"} px-7.75 py-2.5 text-sm font-semibold uppercase shadow-2xl lg:block`}
+        >
           Get a Quote
         </button>
       </nav>
