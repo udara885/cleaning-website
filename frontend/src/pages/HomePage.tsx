@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { useSwipeable } from "react-swipeable"
+import { useEffect, useState } from "react"
 import ReviewCard from "../components/ReviewCard"
 import Footer from "../components/Footer"
 
@@ -68,35 +67,22 @@ const HomePage = () => {
 
   const [currentLogo, setCurrentLogo] = useState(0)
 
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? 2 : prev - 1))
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const maxLogos = 6
+      setCurrentLogo((prev) => (prev === maxLogos - 1 ? 0 : prev + 1))
+    }, 3000)
 
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev === 2 ? 0 : prev + 1))
-  }
+    return () => clearInterval(interval)
+  }, [])
 
-  const swipeHandlersSlide = useSwipeable({
-    onSwipedLeft: handleNextSlide,
-    onSwipedRight: handlePrevSlide,
-    preventScrollOnSwipe: true,
-    trackMouse: true,
-  })
-
-  const handlePrevLogo = () => {
-    setCurrentLogo((prev) => (prev === 0 ? 5 : prev - 1))
-  }
-
-  const handleNextLogo = () => {
-    setCurrentLogo((prev) => (prev === 5 ? 0 : prev + 1))
-  }
-
-  const swipeHandlersLogo = useSwipeable({
-    onSwipedLeft: handleNextLogo,
-    onSwipedRight: handlePrevLogo,
-    preventScrollOnSwipe: true,
-    trackMouse: true,
-  })
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const maxSlides = 3
+      setCurrentSlide((prev) => (prev === maxSlides - 1 ? 0 : prev + 1))
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="h-screen w-full text-[#001E3D]">
@@ -130,7 +116,7 @@ const HomePage = () => {
           <img
             src="/src/assets/cleanergirl.png"
             alt="cleaner girl"
-            className="absolute top-36 right-0 hidden h-[36.5rem] lg:block"
+            className="absolute top-36 right-0 hidden h-146 lg:block"
           />
         </div>
       </div>
@@ -138,7 +124,7 @@ const HomePage = () => {
         <span className="font-semibold uppercase lg:text-xl">
           Why Choose Us
         </span>
-        <h2 className="text-xl leading-9 font-semibold lg:mt-1 lg:text-4xl">
+        <h2 className="text-xl/9 font-semibold lg:mt-1 lg:text-4xl">
           Choose Excellence, Choose WISDOM CLEAN
         </h2>
         <div className="grid w-full gap-8 pt-6 lg:grid-cols-3 lg:gap-5 lg:pt-8">
@@ -158,7 +144,7 @@ const HomePage = () => {
         </div>
         <div className="mt-16 lg:mt-30 lg:-ml-20 lg:flex lg:items-center lg:gap-5.5">
           <img
-            className="mx-auto lg:h-[48.25rem]"
+            className="mx-auto lg:h-193"
             src="/src/assets/cleaner.png"
             alt="cleaner"
           />
@@ -192,7 +178,7 @@ const HomePage = () => {
           <div className="mt-13.25 flex justify-between">
             {process.map((item, index) => (
               <div key={index} className="flex">
-                <div className={`w-[17.8125rem] ${index === 1 ? "pt-10" : ""}`}>
+                <div className={`w-71.25 ${index === 1 ? "pt-10" : ""}`}>
                   <div className="flex flex-col items-center">
                     <div className="flex size-20 items-center justify-center rounded-full bg-[#D0D9FF]">
                       <img
@@ -225,9 +211,13 @@ const HomePage = () => {
           </h2>
           <div className="overflow-hidden px-4">
             <div
-              className="flex gap-4 pt-5.5 transition-transform duration-300 ease-in-out"
-              {...swipeHandlersLogo}
-              style={{ transform: `translateX(-${currentLogo * 10}%)` }}
+              className="ml-40 flex gap-6 pt-5.5 transition-transform duration-300 ease-in-out lg:ml-153 lg:gap-25"
+              style={{
+                transform:
+                  window.innerWidth >= 1024
+                    ? `translateX(-${currentLogo * 28}%)`
+                    : `translateX(-${currentLogo * 45}%)`,
+              }}
             >
               {[
                 "nomic.png",
@@ -240,24 +230,24 @@ const HomePage = () => {
                 <img
                   src={`/src/assets/${img}`}
                   key={index}
-                  className="size-20 lg:size-25"
+                  className="size-20 select-none lg:size-25"
                 />
               ))}
             </div>
           </div>
-          <div className="flex w-full items-center justify-center gap-2 pt-[1.375rem]">
+          <div className="flex w-full items-center justify-center gap-2 pt-5.5">
             {[...Array(6)].map((_, index) => (
               <div
                 key={index}
                 onClick={() => setCurrentLogo(index)}
-                className={`bg-[#B5B0B0]transition-colors h-[0.625rem] w-[0.625rem] rounded-full ${currentLogo === index ? "bg-[#B5B0B0]" : "bg-[#D9D9D9]"}`}
+                className={`size-2.5 rounded-full bg-[#B5B0B0] transition-colors ${currentLogo === index ? "bg-[#B5B0B0]" : "bg-[#D9D9D9]"} cursor-pointer`}
               />
             ))}
           </div>
         </div>
-        <div className="lg:flex lg:flex-row-reverse lg:justify-center lg:gap-31.25 lg:pt-18.5">
+        <div className="lg:flex lg:flex-row-reverse lg:items-center lg:justify-center lg:gap-31.25 lg:pt-18.5">
           <div>
-            <h2 className="pt-[4.25rem] text-xl font-semibold lg:text-[2.5rem]">
+            <h2 className="pt-17 text-xl font-semibold lg:pt-0 lg:text-[2.5rem]">
               Client's Reviews
             </h2>
             <p className="pt-1 pb-4 text-sm text-[#525252] lg:text-base">
@@ -269,9 +259,13 @@ const HomePage = () => {
           <div>
             <div className="overflow-hidden p-1 lg:w-122">
               <div
-                {...swipeHandlersSlide}
                 className="flex gap-6 transition-transform duration-300 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 107}%)` }}
+                style={{
+                  transform:
+                    window.innerWidth >= 1024
+                      ? `translateX(-${currentSlide * 105}%)`
+                      : `translateX(-${currentSlide * 107}%)`,
+                }}
               >
                 {[...Array(3)].map((_, index) => (
                   <div key={index} className="min-w-full">
@@ -285,13 +279,13 @@ const HomePage = () => {
                 <div
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-[0.625rem] w-[0.625rem] rounded-full transition-colors ${currentSlide === index ? "bg-[#B5B0B0]" : "bg-[#D9D9D9]"}`}
+                  className={`h-[0.625rem] w-[0.625rem] cursor-pointer rounded-full transition-colors ${currentSlide === index ? "bg-[#B5B0B0]" : "bg-[#D9D9D9]"}`}
                 />
               ))}
             </div>
           </div>
         </div>
-        <div className="pt-[3.125rem] lg:pt-43">
+        <div className="pt-12.5 lg:pt-43">
           <Footer />
         </div>
       </div>
