@@ -6,58 +6,66 @@ import Footer from "../components/Footer"
 
 const ContactPage = () => {
   return (
-    <div className="h-screen w-full text-[#001E3D]">
-      <div className="relative h-[728px] w-full">
+    <div className="min-h-screen w-full overflow-x-hidden text-[#001E3D]">
+      <div className="relative h-182 w-full lg:h-115.75">
         <div className="fixed inset-0 z-0 bg-[#046BD2] bg-cover bg-center bg-no-repeat">
           <div className="absolute inset-0 bg-black/10" />
         </div>
-        <div className="font-poppins relative z-10 flex h-[728px] flex-col items-center justify-between gap-1 px-5 pt-[17.6875rem] text-white">
+        <div className="font-poppins relative z-10 flex flex-col items-center justify-between gap-1 px-5 pt-70.75 text-white lg:flex-row lg:justify-between lg:gap-11 lg:px-20 lg:pt-31.75">
           {[
-            "top-42 left-32",
-            "top-56 right-25",
-            "top-121 left-9",
-            "top-112 right-10",
+            "top-42 left-32 lg:top-40 lg:left-106.75",
+            "top-56 right-25 lg:top-26.75 lg:left-191.75",
+            "top-121 left-9 lg:top-31.75 lg:left-15.25",
+            "top-112 right-10 lg:top-57.75",
+            "hidden lg:block lg:top-99.75 lg:left-36",
+            "hidden lg:block lg:top-92.5 lg:left-134",
           ].map((className, index) => (
             <div className={`absolute ${className}`} key={index}>
               <Star />
             </div>
           ))}
-          <div className="flex flex-col items-center gap-1">
-            <h1 className="text-4xl leading-9 font-semibold uppercase">
+          <div className="flex flex-col items-center gap-1 lg:-mt-10 lg:items-start">
+            <h1 className="text-4xl/16 font-semibold whitespace-nowrap uppercase lg:text-6xl">
               Contact Us
             </h1>
-            <p className="text-center text-sm font-medium capitalize">
+            <p className="text-center text-sm font-medium capitalize lg:text-left lg:text-base">
               Contact Wisdom Clean for exceptional residential and commercial
               cleaning services. We ensure quality, precision, and customer
               satisfaction.
             </p>
           </div>
-          <img src="/src/assets/people.png" alt="people" />
+          <img
+            src="/src/assets/people.png"
+            alt="people"
+            className="mt-20.25 lg:mt-0 lg:w-139.25"
+          />
         </div>
       </div>
-      <div className="font-poppins relative z-20 bg-white px-5">
-        <div className="pt-15">
-          <img src="/src/assets/map.png" alt="map" />
-          <form className="mt-4 flex flex-col gap-2">
-            <div className="flex flex-col gap-1">
-              <label htmlFor="fname">First Name</label>
-              <input
-                type="text"
-                id="fname"
-                name="fname"
-                placeholder="First Name"
-                className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
-              />
-            </div>
-            <div className="flex flex-col gap-1">
-              <label htmlFor="lname">Last Name</label>
-              <input
-                type="text"
-                id="lname"
-                name="lname"
-                placeholder="Last Name"
-                className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
-              />
+      <div className="font-poppins relative z-20 bg-white px-5 pt-15 lg:px-20 lg:pt-15.25">
+        <div className="lg:flex lg:gap-8.75">
+          <img src="/src/assets/map.png" alt="map" className="lg:w-146.25" />
+          <form className="mt-4 flex w-full flex-col gap-2 lg:mt-0">
+            <div className="lg:flex lg:justify-between lg:gap-5.25">
+              <div className="flex w-full flex-col gap-1">
+                <label htmlFor="fname">First Name</label>
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="First Name"
+                  className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
+                />
+              </div>
+              <div className="flex w-full flex-col gap-1">
+                <label htmlFor="lname">Last Name</label>
+                <input
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  placeholder="Last Name"
+                  className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
+                />
+              </div>
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="email">Email Address</label>
@@ -97,9 +105,9 @@ const ContactPage = () => {
             </button>
           </form>
         </div>
-        <div className="mt-10 flex flex-col gap-4">
-          <div className="flex items-center gap-4 rounded-3xl border-2 border-gray-500 px-5 py-4.5">
-            <div className="w-[4.25rem] rounded-full bg-[#046BD2] p-[0.875rem]">
+        <div className="mt-10 grid gap-4 lg:mt-22.5 lg:grid-cols-3 lg:gap-4.75">
+          <div className="flex items-center gap-4 rounded-[2.5rem] border-2 border-gray-500 px-5 py-4.5">
+            <div className="w-17 rounded-full bg-[#046BD2] p-3.5">
               <FaPhoneAlt fill="white" size={40} />
             </div>
             <div className="flex flex-col gap-0.5">
@@ -112,8 +120,8 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-4 rounded-3xl border-2 border-gray-500 px-5 py-4.5">
-            <div className="w-[4.25rem] rounded-full bg-[#046BD2] p-[0.875rem]">
+          <div className="flex items-center gap-4 rounded-[2.5rem] border-2 border-gray-500 px-5 py-4.5">
+            <div className="w-17 rounded-full bg-[#046BD2] p-3.5">
               <TiLocation fill="white" size={40} />
             </div>
             <div className="flex flex-col gap-0.5">
@@ -125,8 +133,8 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-4 rounded-3xl border-2 border-gray-500 px-5 py-4.5">
-            <div className="w-[4.25rem] rounded-full bg-[#046BD2] p-[0.875rem]">
+          <div className="flex items-center gap-4 rounded-[2.5rem] border-2 border-gray-500 px-5 py-4.5">
+            <div className="w-17 rounded-full bg-[#046BD2] p-3.5">
               <BsClockFill fill="white" size={40} />
             </div>
             <div className="flex flex-col gap-0.5">
@@ -140,7 +148,7 @@ const ContactPage = () => {
             </div>
           </div>
         </div>
-        <div className="mt-15">
+        <div className="mt-15 lg:mt-23">
           <Footer />
         </div>
       </div>
