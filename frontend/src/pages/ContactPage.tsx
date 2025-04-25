@@ -3,8 +3,49 @@ import { FaPhoneAlt } from "react-icons/fa"
 import { TiLocation } from "react-icons/ti"
 import { BsClockFill } from "react-icons/bs"
 import Footer from "../components/Footer"
+import toast from "react-hot-toast"
+import { useForm, SubmitHandler } from "react-hook-form"
+import Map from "../components/Map"
+
+interface FormData {
+  firstName: string
+  lastName: string
+  email: string
+  subject: string
+  message: string
+}
 
 const ContactPage = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>()
+
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    const formData = new FormData()
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value)
+    })
+    formData.append("access_key", import.meta.env.VITE_ACCESS_KEY)
+    const submitPromise = fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    }).then((res) => res.json())
+    toast.promise(submitPromise, {
+      loading: "Sending...",
+      success: (data) => {
+        if (data.success) {
+          reset()
+          return "Message sent successfully."
+        }
+        return "Something went wrong."
+      },
+      error: "Failed to send message.",
+    })
+  }
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden text-[#001E3D]">
       <div className="relative h-182 w-full lg:h-115.75">
@@ -43,28 +84,48 @@ const ContactPage = () => {
       </div>
       <div className="font-poppins relative z-20 bg-white px-5 pt-15 lg:px-20 lg:pt-15.25">
         <div className="lg:flex lg:gap-8.75">
-          <img src="/src/assets/map.png" alt="map" className="lg:w-146.25" />
-          <form className="mt-4 flex w-full flex-col gap-2 lg:mt-0">
+          <div className="w-full overflow-hidden rounded-lg">
+            <Map />
+          </div>
+          <form
+            className="mt-4 flex w-full flex-col gap-2 lg:mt-0"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value={import.meta.env.VITE_ACCESS_KEY}
+            />
             <div className="lg:flex lg:justify-between lg:gap-5.25">
               <div className="flex w-full flex-col gap-1">
-                <label htmlFor="fname">First Name</label>
+                <label htmlFor="firstName">First Name</label>
                 <input
                   type="text"
-                  id="fname"
-                  name="fname"
+                  id="firstName"
                   placeholder="First Name"
-                  className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
+                  className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 caret-[#046BD2] outline-none focus:border-[#046BD2]"
+                  {...register("firstName", {
+                    required: "First name is required.",
+                  })}
                 />
+                {errors.firstName && (
+                  <p className="text-red-500">{errors.firstName.message}</p>
+                )}
               </div>
               <div className="flex w-full flex-col gap-1">
-                <label htmlFor="lname">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                   type="text"
-                  id="lname"
-                  name="lname"
+                  id="lastName"
                   placeholder="Last Name"
-                  className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
+                  className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 caret-[#046BD2] outline-none focus:border-[#046BD2]"
+                  {...register("lastName", {
+                    required: "Last name is required.",
+                  })}
                 />
+                {errors.lastName && (
+                  <p className="text-red-500">{errors.lastName.message}</p>
+                )}
               </div>
             </div>
             <div className="flex flex-col gap-1">
@@ -72,34 +133,49 @@ const ContactPage = () => {
               <input
                 type="email"
                 id="email"
-                name="email"
                 placeholder="Enter Email Address"
-                className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
+                className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 caret-[#046BD2] outline-none focus:border-[#046BD2]"
+                {...register("email", {
+                  required: "Email address is required.",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Invalid email address",
+                  },
+                })}
               />
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="subject">Subject</label>
               <input
                 type="text"
                 id="subject"
-                name="subject"
                 placeholder="Subject"
-                className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
+                className="rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 caret-[#046BD2] outline-none focus:border-[#046BD2]"
+                {...register("subject", { required: "Subject is required" })}
               />
+              {errors.subject && (
+                <p className="text-red-500">{errors.subject.message}</p>
+              )}
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="message">Message</label>
               <textarea
                 rows={3}
                 id="message"
-                name="message"
                 placeholder="Leave a Message here ....."
-                className="resize-none rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 outline-none"
+                className="resize-none rounded-[0.625rem] border border-[#D0D5DD] py-3 pl-3 caret-[#046BD2] outline-none focus:border-[#046BD2]"
+                {...register("message", { required: "Message is required" })}
               />
+              {errors.message && (
+                <p className="text-red-500">{errors.message.message}</p>
+              )}
             </div>
             <button
               type="submit"
-              className="mt-3 rounded-full bg-[#046BD2] px-8 py-2.5 text-sm font-semibold text-white uppercase"
+              className="mt-3 cursor-pointer rounded-full bg-[#046BD2] px-8 py-2.5 text-sm font-semibold text-white uppercase"
             >
               Contact Us
             </button>
