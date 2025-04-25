@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import ReviewCard from "../components/ReviewCard"
 import Footer from "../components/Footer"
+import { Link } from "react-router"
 
 const reasons = [
   {
@@ -110,9 +111,12 @@ const HomePage = () => {
             that fits both your budget and requirements without compromising
             quality.
           </p>
-          <button className="mt-3 rounded-full bg-[#046BD2] px-14 py-3 text-xs font-semibold lg:mt-8 lg:text-sm">
+          <Link
+            to="/about"
+            className="mt-3 rounded-full bg-[#046BD2] px-14 py-3 text-xs font-semibold lg:mt-8 lg:text-sm"
+          >
             ABOUT US
-          </button>
+          </Link>
           <img
             src="/src/assets/cleanergirl.png"
             alt="cleaner girl"
@@ -160,9 +164,11 @@ const HomePage = () => {
               commitment to excellence and attention to detail, we ensure every
               space is cleaned to perfection.
             </p>
-            <button className="mt-4 mb-8 rounded-full bg-[#046BD2] px-8 py-2.5 text-xs font-semibold text-white uppercase lg:mt-8 lg:text-sm">
-              Our projects
-            </button>
+            <Link to="/gallery">
+              <button className="mt-4 mb-8 cursor-pointer rounded-full bg-[#046BD2] px-8 py-2.5 text-xs font-semibold text-white uppercase lg:mt-8 lg:text-sm">
+                Our projects
+              </button>
+            </Link>
           </div>
         </div>
         <div className="mt-30 hidden lg:block">
