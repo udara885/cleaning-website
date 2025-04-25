@@ -6,10 +6,12 @@ import ServicesPage from "./pages/ServicesPage"
 import GalleryPage from "./pages/GalleryPage"
 import ContactPage from "./pages/ContactPage"
 import ReviewPage from "./pages/ReviewPage"
+import { Toaster } from "react-hot-toast"
 
 const App = () => {
   return (
     <>
+      <Toaster />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
