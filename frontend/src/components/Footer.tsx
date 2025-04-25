@@ -13,18 +13,16 @@ const Footer = () => {
           <h2 className="font-inter mb-3 w-[70%] text-center text-2xl font-semibold text-white lg:mb-8 lg:text-5xl">
             Schedule Your Free Estimate Now
           </h2>
-          <button className="font-poppins w-[9.9375rem] rounded-full bg-[#046BD2] px-8 py-2.5 font-semibold text-white uppercase lg:text-sm">
+          <button className="font-poppins w-39.75 cursor-pointer rounded-full bg-[#046BD2] px-8 py-2.5 font-semibold text-white uppercase lg:text-sm">
             Estimate
           </button>
         </div>
       </div>
       <div className="-mx-5 -mt-18 flex flex-col items-center bg-[#046BD2] lg:-mx-20 lg:flex-row lg:justify-between lg:px-20">
         <div className="flex flex-col items-center lg:-mt-10 lg:w-95 lg:items-start">
-          <img
-            src="/src/assets/logo.png"
-            alt="logo"
-            className="mt-24 w-45.25 lg:-mx-8"
-          />
+          <Link to="/" className="mt-24 lg:-mx-8">
+            <img src="/src/assets/logo.png" alt="logo" className="w-45.25" />
+          </Link>
           <p className="px-6 text-center text-xs text-white capitalize lg:px-0 lg:text-left">
             Experience the Wisdom Clean difference—enjoy a spotless space that
             brings peace of mind. Let us handle the cleaning, so you can focus
@@ -78,7 +76,11 @@ const Footer = () => {
               "linkedin.png",
               "x.png",
             ].map((img, index) => (
-              <img key={index} className="h-7" src={`/src/assets/${img}`} />
+              <img
+                key={index}
+                className="h-7 cursor-pointer"
+                src={`/src/assets/${img}`}
+              />
             ))}
           </div>
         </div>
