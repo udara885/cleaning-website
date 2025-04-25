@@ -33,11 +33,13 @@ const Navbar = () => {
           className="cursor-pointer text-white md:hidden"
           onClick={() => setOpen(true)}
         />
-        <img
-          src="/src/assets/logo.png"
-          alt="logo"
-          className="h-14 cursor-pointer object-cover"
-        />
+        <Link to="/">
+          <img
+            src="/src/assets/logo.png"
+            alt="logo"
+            className="h-14 object-cover"
+          />
+        </Link>
         <div className="hidden gap-13.75 md:flex">
           {navItems.map((item, index) => (
             <Link
