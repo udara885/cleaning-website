@@ -5,15 +5,19 @@ import Footer from "../components/Footer"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useReviewStore } from "../store/review"
 import toast from "react-hot-toast"
+import { useEffect, useState } from "react"
 
 interface FormData {
   firstName: string
   lastName: string
   comment: string
   rating: number
+  createdAt: string
 }
 
 const ReviewPage = () => {
+  const [loading, setLoading] = useState(false)
+
   const {
     register,
     handleSubmit,
@@ -21,7 +25,16 @@ const ReviewPage = () => {
     formState: { errors },
   } = useForm<FormData>()
 
-  const { addReview } = useReviewStore()
+  const { addReview, getReviews, reviews } = useReviewStore()
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      setLoading(true)
+      await getReviews()
+      setLoading(false)
+    }
+    fetchReviews()
+  }, [])
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     await toast.promise(addReview(data), {
@@ -167,13 +180,19 @@ const ReviewPage = () => {
           </div>
         </form>
         <div className="mt-23.5 lg:mt-18.75">
-          {[...Array(2)].map((_, index) => (
-            <div key={index}>
-              <hr className="-mx-5 text-[#505050]" />
-              <ReviewCard2 />
-              {index === 1 && <hr className="-mx-5 text-[#505050]" />}
-            </div>
-          ))}
+          {loading ? (
+            <p className="text-center font-semibold">Getting Reviews...</p>
+          ) : (
+            reviews.map((review, index) => (
+              <div key={index}>
+                <hr className="-mx-5 text-[#505050]" />
+                <ReviewCard2 review={review} />
+                {index === reviews.length - 1 && (
+                  <hr className="-mx-5 text-[#505050]" />
+                )}
+              </div>
+            ))
+          )}
         </div>
         <div className="mt-12 lg:mt-30">
           <Footer />
