@@ -87,7 +87,7 @@ const HomePage = () => {
 
   return (
     <div className="h-screen w-full text-[#001E3D]">
-      <div className="relative h-[728px] w-full">
+      <div className="relative h-182 w-full">
         <div className="w-screen">
           <img
             src="/src/assets/hero.png"
@@ -97,26 +97,29 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="font-poppins relative z-10 flex flex-col items-start gap-1 px-5 pt-51 text-white lg:px-20">
-          <span className="font-semibold lg:text-xl">WISDOM CLEAN</span>
-          <h1 className="text-4xl font-semibold uppercase lg:text-6xl">
-            Custom Cleaning <br />
-            Solutions <br />
-            Exceptional Results
-          </h1>
-          <p className="text-sm font-medium lg:mt-1 lg:text-base">
-            Why settle for standard pricing when your cleaning needs are unique?
-            <br />
-            At Wisdom Clean, we allow you to set your quote, ensuring a service{" "}
-            <br />
-            that fits both your budget and requirements without compromising
-            quality.
-          </p>
-          <Link
-            to="/about"
-            className="mt-3 rounded-full bg-[#046BD2] px-14 py-3 text-xs font-semibold lg:mt-8 lg:text-sm"
-          >
-            ABOUT US
-          </Link>
+          <div>
+            <span className="font-semibold lg:text-xl">WISDOM CLEAN</span>
+            <h1 className="text-4xl font-semibold uppercase lg:text-6xl">
+              Custom Cleaning <br />
+              Solutions <br />
+              Exceptional Results
+            </h1>
+            <p className="text-sm font-medium lg:mt-1 lg:text-base">
+              Why settle for standard pricing when your cleaning needs are
+              unique?
+              <br />
+              At Wisdom Clean, we allow you to set your quote, ensuring a
+              service <br />
+              that fits both your budget and requirements without compromising
+              quality.
+            </p>
+            <Link
+              to="/about"
+              className="mt-3 rounded-full bg-[#046BD2] px-14 py-3 text-xs font-semibold lg:mt-8 lg:text-sm"
+            >
+              ABOUT US
+            </Link>
+          </div>
           <img
             src="/src/assets/cleanergirl.png"
             alt="cleaner girl"
