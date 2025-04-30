@@ -52,7 +52,7 @@ const Navbar = () => {
           ))}
         </div>
         <button
-          className={`hidden cursor-pointer rounded-4xl ${location === "/" ? "bg-[#046BD2] text-white" : "bg-white text-black"} px-7.75 py-2.5 text-sm font-semibold uppercase shadow-2xl lg:block`}
+          className={`hidden cursor-pointer rounded-4xl ${location === "/" ? "bg-[#046BD2] text-white" : "bg-white text-black"} px-7.75 py-2.5 text-sm font-semibold uppercase shadow-[1px_1px_2px_1px_rgba(0,0,0,0.2)] lg:block`}
         >
           Get a Quote
         </button>
