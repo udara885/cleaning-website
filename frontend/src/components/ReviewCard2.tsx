@@ -13,7 +13,7 @@ const ReviewCard2 = ({ review }: { review: Review }) => {
     <div className="font-manrope mt-9 mb-12 px-4 pt-4 pb-1">
       <div className="flex items-center gap-4">
         <div className="flex size-10 items-center justify-center rounded-full bg-[#046BD2] font-bold text-white">
-          {review.firstName.split("")[0] + " " + review.lastName.split("")[0]}
+          {review.firstName.split("")[0] + review.lastName.split("")[0]}
         </div>
         <div className="flex flex-col">
           <span className="font-semibold text-[#191D23]">
