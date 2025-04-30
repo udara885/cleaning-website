@@ -5,6 +5,7 @@ interface Review {
   lastName: string
   comment: string
   rating: number
+  createdAt: string
 }
 
 interface ReviewState {
