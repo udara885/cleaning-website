@@ -2,8 +2,38 @@ import { IoMdStar } from "react-icons/io"
 import Star from "../components/Star"
 import ReviewCard2 from "../components/ReviewCard2"
 import Footer from "../components/Footer"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { useReviewStore } from "../store/review"
+import toast from "react-hot-toast"
+
+interface FormData {
+  firstName: string
+  lastName: string
+  comment: string
+  rating: number
+}
 
 const ReviewPage = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>()
+
+  const { addReview } = useReviewStore()
+
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    await toast.promise(addReview(data), {
+      loading: "Submitting your review.",
+      success: (res) => {
+        reset()
+        return res.message
+      },
+      error: "Something went wrong!",
+    })
+  }
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden text-[#001E3D]">
       <div className="relative h-182 w-full lg:h-115.75">
@@ -41,46 +71,59 @@ const ReviewPage = () => {
         </div>
       </div>
       <div className="font-poppins relative z-20 bg-white px-5 pt-7 text-black lg:px-20 lg:pt-8">
-        <form className="lg:px-60.75">
+        <form className="lg:px-60.75" onSubmit={handleSubmit(onSubmit)}>
           <h2 className="text-center text-xl font-semibold uppercase lg:text-[2.375rem]/9.5">
             Review Spotter
           </h2>
           <div className="mt-4.5 flex flex-col gap-2">
             <div className="lg:flex lg:justify-between lg:gap-5">
               <div className="flex w-full flex-col gap-1">
-                <label htmlFor="fname" className="text-sm">
+                <label htmlFor="firstName" className="text-sm">
                   First Name
                 </label>
                 <input
                   type="text"
-                  id="fname"
-                  name="fname"
+                  id="firstName"
                   className="rounded-md border border-[#C6C6C6] p-3 outline-none"
+                  {...register("firstName", {
+                    required: "First Name is required",
+                  })}
                 />
+                {errors.firstName && (
+                  <p className="text-red-500">{errors.firstName.message}</p>
+                )}
               </div>
               <div className="flex w-full flex-col gap-1">
-                <label htmlFor="lname" className="text-sm">
+                <label htmlFor="lastName" className="text-sm">
                   Last Name
                 </label>
                 <input
                   type="text"
-                  id="lname"
-                  name="lname"
+                  id="lastName"
                   className="rounded-md border border-[#C6C6C6] p-3 outline-none"
+                  {...register("lastName", {
+                    required: "Last Name is required",
+                  })}
                 />
+                {errors.lastName && (
+                  <p className="text-red-500">{errors.lastName.message}</p>
+                )}
               </div>
             </div>
             <div className="flex flex-col gap-1">
-              <label htmlFor="review" className="text-sm">
+              <label htmlFor="comment" className="text-sm">
                 Add Review
               </label>
               <textarea
-                id="review"
-                name="review"
+                id="comment"
                 rows={3}
                 className="rounded-md border border-[#C6C6C6] px-5 py-4 outline-none"
                 placeholder="Leave a Review here ....."
+                {...register("comment", { required: "Comment is required" })}
               />
+              {errors.comment && (
+                <p className="text-red-500">{errors.comment.message}</p>
+              )}
             </div>
             <div className="flex flex-col gap-1">
               <label
@@ -93,9 +136,10 @@ const ReviewPage = () => {
                 <div key={index} className="flex items-center gap-2">
                   <input
                     type="radio"
-                    name="rating"
                     id="rating"
+                    value={5 - index}
                     className="relative h-4.5 w-4.5 appearance-none rounded-sm border checked:bg-[#046BD2] checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-xs checked:after:text-white checked:after:content-['✓']"
+                    {...register("rating", { required: "Rating is required" })}
                   />
                   <div className="flex gap-1">
                     {[...Array(5 - index)].map((_, index) => (
@@ -110,10 +154,13 @@ const ReviewPage = () => {
                   </span>
                 </div>
               ))}
+              {errors.rating && (
+                <p className="text-red-500">{errors.rating.message}</p>
+              )}
             </div>
             <button
               type="submit"
-              className="mx-auto mt-9 w-66.25 rounded-4xl bg-[#046BD2] p-3 font-semibold text-white lg:mt-8 lg:w-70.75"
+              className="mx-auto mt-9 w-66.25 cursor-pointer rounded-4xl bg-[#046BD2] p-3 font-semibold text-white lg:mt-8 lg:w-70.75"
             >
               Submit
             </button>
