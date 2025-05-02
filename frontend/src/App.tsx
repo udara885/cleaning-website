@@ -8,6 +8,7 @@ import ContactPage from "./pages/ContactPage"
 import ReviewPage from "./pages/ReviewPage"
 import NotFoundPage from "./pages/NotFoundPage"
 import { Toaster } from "react-hot-toast"
+import QuoteFormPage from "./pages/QuoteFormPage"
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/reviews" element={<ReviewPage />} />
+        <Route path="/quote" element={<QuoteFormPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
