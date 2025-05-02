@@ -34,7 +34,7 @@ const ReviewPage = () => {
       setLoading(false)
     }
     fetchReviews()
-  }, [])
+  }, [getReviews])
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     await toast.promise(addReview(data), {
@@ -97,13 +97,15 @@ const ReviewPage = () => {
                 <input
                   type="text"
                   id="firstName"
-                  className="rounded-md border border-[#C6C6C6] p-3 outline-none"
+                  className="rounded-md border border-[#C6C6C6] p-3 caret-[#046BD2] outline-none focus:border-[#046BD2]"
                   {...register("firstName", {
                     required: "First Name is required",
                   })}
                 />
                 {errors.firstName && (
-                  <p className="text-red-500">{errors.firstName.message}</p>
+                  <p className="text-sm text-red-500">
+                    {errors.firstName.message}
+                  </p>
                 )}
               </div>
               <div className="flex w-full flex-col gap-1">
@@ -113,13 +115,15 @@ const ReviewPage = () => {
                 <input
                   type="text"
                   id="lastName"
-                  className="rounded-md border border-[#C6C6C6] p-3 outline-none"
+                  className="rounded-md border border-[#C6C6C6] p-3 caret-[#046BD2] outline-none focus:border-[#046BD2]"
                   {...register("lastName", {
                     required: "Last Name is required",
                   })}
                 />
                 {errors.lastName && (
-                  <p className="text-red-500">{errors.lastName.message}</p>
+                  <p className="text-sm text-red-500">
+                    {errors.lastName.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -130,12 +134,12 @@ const ReviewPage = () => {
               <textarea
                 id="comment"
                 rows={3}
-                className="rounded-md border border-[#C6C6C6] px-5 py-4 outline-none"
+                className="rounded-md border border-[#C6C6C6] px-5 py-4 caret-[#046BD2] outline-none focus:border-[#046BD2]"
                 placeholder="Leave a Review here ....."
                 {...register("comment", { required: "Comment is required" })}
               />
               {errors.comment && (
-                <p className="text-red-500">{errors.comment.message}</p>
+                <p className="text-sm text-red-500">{errors.comment.message}</p>
               )}
             </div>
             <div className="flex flex-col gap-1">
@@ -151,7 +155,7 @@ const ReviewPage = () => {
                     type="radio"
                     id="rating"
                     value={5 - index}
-                    className="relative h-4.5 w-4.5 appearance-none rounded-sm border checked:bg-[#046BD2] checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-xs checked:after:text-white checked:after:content-['✓']"
+                    className="relative h-4.5 w-4.5 appearance-none rounded-sm border border-[#C6C6C6] checked:border-[#046BD2] checked:bg-[#046BD2] checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-xs checked:after:text-white checked:after:content-['✓']"
                     {...register("rating", { required: "Rating is required" })}
                   />
                   <div className="flex gap-1">
@@ -168,7 +172,7 @@ const ReviewPage = () => {
                 </div>
               ))}
               {errors.rating && (
-                <p className="text-red-500">{errors.rating.message}</p>
+                <p className="text-sm text-red-500">{errors.rating.message}</p>
               )}
             </div>
             <button
@@ -180,18 +184,22 @@ const ReviewPage = () => {
           </div>
         </form>
         <div className="mt-23.5 lg:mt-18.75">
-          {loading ? (
-            <p className="text-center font-semibold">Getting Reviews...</p>
-          ) : (
-            reviews.map((review, index) => (
-              <div key={index}>
-                <hr className="-mx-5 text-[#505050]" />
-                <ReviewCard2 review={review} />
-                {index === reviews.length - 1 && (
+          {reviews.length > 0 ? (
+            loading ? (
+              <p className="text-center font-semibold">Getting Reviews...</p>
+            ) : (
+              reviews.map((review, index) => (
+                <div key={index}>
                   <hr className="-mx-5 text-[#505050]" />
-                )}
-              </div>
-            ))
+                  <ReviewCard2 review={review} />
+                  {index === reviews.length - 1 && (
+                    <hr className="-mx-5 text-[#505050]" />
+                  )}
+                </div>
+              ))
+            )
+          ) : (
+            <p className="text-center font-semibold">No Reviews Found.😟</p>
           )}
         </div>
         <div className="mt-12 lg:mt-30">
