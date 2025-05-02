@@ -50,12 +50,6 @@ const QuoteFormPage = () => {
 
   const { addQuote } = useQuoteStore()
 
-  const validateDate = (date: string) => {
-    const selectedDate = new Date(date)
-    const today = new Date()
-    return selectedDate < today && "Invalid date."
-  }
-
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     await toast.promise(addQuote(data), {
       loading: "Submitting your quote.",
@@ -65,6 +59,12 @@ const QuoteFormPage = () => {
       },
       error: "Something went wrong!",
     })
+  }
+
+  const getTomorrow = (): string => {
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    return tomorrow.toISOString().split("T")[0]
   }
 
   return (
@@ -379,10 +379,10 @@ const QuoteFormPage = () => {
                 <input
                   type="date"
                   id="startDate"
+                  min={getTomorrow()}
                   className="w-full rounded-md border border-gray-300 px-3 py-2 caret-[#046BD2] focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   {...register("startDate", {
                     required: "Start date is required.",
-                    validate: validateDate,
                   })}
                 />
                 {errors.startDate && (
