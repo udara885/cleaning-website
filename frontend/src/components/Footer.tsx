@@ -13,9 +13,12 @@ const Footer = () => {
           <h2 className="font-inter mb-3 w-[70%] text-center text-2xl font-semibold text-white lg:mb-8 lg:text-5xl">
             Schedule Your Free Estimate Now
           </h2>
-          <button className="font-poppins w-39.75 cursor-pointer rounded-full bg-[#046BD2] px-8 py-2.5 font-semibold text-white uppercase lg:text-sm">
+          <Link
+            to="/quote"
+            className="font-poppins w-39.75 rounded-full bg-[#046BD2] px-8 py-2.5 text-center font-semibold text-white uppercase lg:text-sm"
+          >
             Estimate
-          </button>
+          </Link>
         </div>
       </div>
       <div className="-mx-5 -mt-18 flex flex-col items-center bg-[#046BD2] lg:-mx-20 lg:flex-row lg:justify-between lg:px-20">
