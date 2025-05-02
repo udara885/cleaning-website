@@ -97,7 +97,7 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="font-poppins relative z-10 flex flex-col items-start gap-1 px-5 pt-51 text-white lg:px-20">
-          <div>
+          <div className="flex flex-col">
             <span className="font-semibold lg:text-xl">WISDOM CLEAN</span>
             <h1 className="text-4xl font-semibold uppercase lg:text-6xl">
               Custom Cleaning <br />
@@ -115,7 +115,7 @@ const HomePage = () => {
             </p>
             <Link
               to="/about"
-              className="mt-3 rounded-full bg-[#046BD2] px-14 py-3 text-xs font-semibold lg:mt-8 lg:text-sm"
+              className="mt-3 w-fit rounded-full bg-[#046BD2] px-14 py-3 text-xs font-semibold lg:mt-8 lg:text-sm"
             >
               ABOUT US
             </Link>
