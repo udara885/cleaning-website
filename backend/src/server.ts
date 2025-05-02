@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import { connectDB } from "./database/db"
 import errorMiddleware from "./middlewares/error.middleware"
 import reviewRouter from "./routes/review.routes"
+import quoteRouter from "./routes/quote.routes"
 
 dotenv.config()
 
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use("/api/v1/reviews", reviewRouter)
+app.use("/api/v1/quotes", quoteRouter)
 
 app.use(errorMiddleware)
 
