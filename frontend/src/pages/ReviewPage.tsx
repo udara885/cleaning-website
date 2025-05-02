@@ -184,20 +184,18 @@ const ReviewPage = () => {
           </div>
         </form>
         <div className="mt-23.5 lg:mt-18.75">
-          {reviews.length > 0 ? (
-            loading ? (
-              <p className="text-center font-semibold">Getting Reviews...</p>
-            ) : (
-              reviews.map((review, index) => (
-                <div key={index}>
+          {loading ? (
+            <p className="text-center font-semibold">Getting Reviews...</p>
+          ) : reviews.length > 0 ? (
+            reviews.map((review, index) => (
+              <div key={index}>
+                <hr className="-mx-5 text-[#505050]" />
+                <ReviewCard2 review={review} />
+                {index === reviews.length - 1 && (
                   <hr className="-mx-5 text-[#505050]" />
-                  <ReviewCard2 review={review} />
-                  {index === reviews.length - 1 && (
-                    <hr className="-mx-5 text-[#505050]" />
-                  )}
-                </div>
-              ))
-            )
+                )}
+              </div>
+            ))
           ) : (
             <p className="text-center font-semibold">No Reviews Found.😟</p>
           )}
