@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="flex flex-col">
       <div className="relative">
         <img
-          src="/src/assets/clean.png"
+          src="/src/assets/clean.webp"
           alt="cleaning"
           className="w-full lg:h-73.5 lg:rounded-[1.875rem] lg:object-cover"
         />
@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="-mx-5 -mt-18 flex flex-col items-center bg-[#046BD2] lg:-mx-20 lg:flex-row lg:justify-between lg:px-20">
         <div className="flex flex-col items-center lg:-mt-10 lg:w-95 lg:items-start">
           <Link to="/" className="mt-24 lg:-mx-8">
-            <img src="/src/assets/logo.png" alt="logo" className="w-45.25" />
+            <img src="/src/assets/logo.webp" alt="logo" className="w-45.25" />
           </Link>
           <p className="px-6 text-center text-xs text-white capitalize lg:px-0 lg:text-left">
             Experience the Wisdom Clean difference—enjoy a spotless space that
@@ -73,16 +73,16 @@ const Footer = () => {
           </span>
           <div className="flex gap-0.5">
             {[
-              "whatsapp.png",
-              "instagram.png",
-              "facebook.png",
-              "linkedin.png",
-              "x.png",
+              "https://img.icons8.com/?size=100&id=16466&format=png&color=000000",
+              "https://img.icons8.com/?size=100&id=DpOQ6G5p47f0&format=png&color=000000",
+              "https://img.icons8.com/?size=100&id=118466&format=png&color=000000",
+              "https://img.icons8.com/?size=100&id=98960&format=png&color=000000",
+              "https://img.icons8.com/?size=100&id=YfCbGWCWcuar&format=png&color=000000",
             ].map((img, index) => (
               <img
                 key={index}
-                className="h-7 cursor-pointer"
-                src={`/src/assets/${img}`}
+                className="h-7 cursor-pointer rounded-full bg-white p-0.5"
+                src={img}
               />
             ))}
           </div>
