@@ -1,22 +1,5 @@
 import { create } from "zustand"
-
-interface Quote {
-  companyName: string
-  contactPerson: string
-  phoneNumber: string
-  email: string
-  serviceAddress: string
-  serviceType: string[]
-  frequency: string
-  propertyType: string
-  squareFootage: string
-  bedrooms: string
-  bathrooms: string
-  additionalAreas: string
-  specialRequests: string
-  startDate: string
-  preferredTime: string
-}
+import { Quote } from "../types/types"
 
 interface QuoteState {
   quotes: Quote[]
