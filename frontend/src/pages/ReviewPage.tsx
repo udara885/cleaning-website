@@ -6,14 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { useReviewStore } from "../store/review"
 import toast from "react-hot-toast"
 import { useEffect, useState } from "react"
-
-interface FormData {
-  firstName: string
-  lastName: string
-  comment: string
-  rating: number
-  createdAt: string
-}
+import { Review } from "../types/types"
 
 const ReviewPage = () => {
   const [loading, setLoading] = useState(false)
@@ -23,7 +16,7 @@ const ReviewPage = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>()
+  } = useForm<Review>()
 
   const { addReview, getReviews, reviews } = useReviewStore()
 
@@ -36,7 +29,7 @@ const ReviewPage = () => {
     fetchReviews()
   }, [getReviews])
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
+  const onSubmit: SubmitHandler<Review> = async (data) => {
     await toast.promise(addReview(data), {
       loading: "Submitting your review.",
       success: (res) => {
