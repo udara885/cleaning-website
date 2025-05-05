@@ -5,37 +5,37 @@ import { Link } from "react-router"
 
 const reasons = [
   {
-    icon: "expertise.png",
+    icon: "expertise.webp",
     title: "expertise",
     description:
       "Our skilled professionals bring years of training and experience, ensuring your space is in capable hands and cleaned to perfection.",
   },
   {
-    icon: "integrity.png",
+    icon: "integrity.webp",
     title: "integrity",
     description:
       "Honesty and transparency are at the core of everything we do—trust us to deliver on our promises.",
   },
   {
-    icon: "solutions.png",
+    icon: "solutions.webp",
     title: "customized solutions",
     description:
       "We offer tailored cleaning plans to suit your specific needs, whether for residential, commercial, or specialized cleaning projects.",
   },
   {
-    icon: "reliability.png",
+    icon: "reliability.webp",
     title: "reliability",
     description:
       "Count on us for punctual, dependable cleaning solutions, delivered when you need them most.",
   },
   {
-    icon: "quality.png",
+    icon: "quality.webp",
     title: "quality assuarance",
     description:
       "We uphold the highest standards to guarantee consistent, top-notch results with every service, big or small.",
   },
   {
-    icon: "satisfaction.png",
+    icon: "satisfaction.webp",
     title: "customer satisfaction",
     description:
       "We’re committed to exceeding your expectations, leaving your space spotless and refreshed with every service.",
@@ -44,19 +44,19 @@ const reasons = [
 
 const process = [
   {
-    icon: "book-form.png",
+    icon: "book-form.webp",
     title: "Book Online form",
     description:
       "Provide us with your contact details and any specific requirements through our contact page form. We'll ensure we have all the necessary information to deliver the perfect cleaning solution for you.",
   },
   {
-    icon: "confirmation.png",
+    icon: "confirmation.webp",
     title: "Get confirmation",
     description:
       "Once you've booked and filled out the form sit back and relax. We'll promptly confirm your booking and send you a confirmation email to let you know that everything is set for your scheduled cleaning service",
   },
   {
-    icon: "enjoy.png",
+    icon: "enjoy.webp",
     title: "Let's enjoy",
     description:
       "Now that everything is confirmed, it's time to sit back, relax, and enjoy our top-notch cleaning service Our professional team will arrive promptly at the scheduled time and ensure your home or office is sparkling clean and refreshed",
@@ -90,7 +90,7 @@ const HomePage = () => {
       <div className="relative h-182 w-full">
         <div className="w-screen">
           <img
-            src="/src/assets/hero.png"
+            src="/src/assets/hero.webp"
             alt="hero image"
             className="absolute inset-0 h-full w-full"
           />
@@ -121,7 +121,7 @@ const HomePage = () => {
             </Link>
           </div>
           <img
-            src="/src/assets/cleanergirl.png"
+            src="/src/assets/cleanergirl.webp"
             alt="cleaner girl"
             className="absolute top-36 right-0 hidden h-146 lg:block"
           />
@@ -152,7 +152,7 @@ const HomePage = () => {
         <div className="mt-16 lg:mt-30 lg:-ml-20 lg:flex lg:items-center lg:gap-5.5">
           <img
             className="mx-auto lg:h-193"
-            src="/src/assets/cleaner.png"
+            src="/src/assets/cleaner.webp"
             alt="cleaner"
           />
           <div>
@@ -206,7 +206,7 @@ const HomePage = () => {
                 </div>
                 {index !== process.length - 1 && (
                   <img
-                    src={`/src/assets/line-2.png`}
+                    src={`/src/assets/line-2.webp`}
                     className={`mt-18 h-17.5 w-43.5 ${index === 0 ? "rotate-18" : ""}`}
                   />
                 )}
@@ -229,12 +229,12 @@ const HomePage = () => {
               }}
             >
               {[
-                "nomic.png",
-                "futurelife.png",
-                "srm.png",
-                "sam.png",
-                "ruhunu.png",
-                "sy.png",
+                "nomic.webp",
+                "futurelife.webp",
+                "srm.webp",
+                "sam.webp",
+                "ruhunu.webp",
+                "sy.webp",
               ].map((img, index) => (
                 <img
                   src={`/src/assets/${img}`}

@@ -35,7 +35,7 @@ const Navbar = () => {
         />
         <Link to="/">
           <img
-            src="/src/assets/logo.png"
+            src="/src/assets/logo.webp"
             alt="logo"
             className="h-14 object-cover"
           />

@@ -3,19 +3,19 @@ import Star from "../components/Star"
 
 const services = [
   {
-    image: "windowclean.png",
+    image: "windowclean.webp",
     title: "Window Cleaning",
     description:
       "Let Wisdom Clean bring a sparkling shine to your windows. Our expert team ensures streak-free, crystal-clear results, enhancing the brightness and beauty of your space with every clean.",
   },
   {
-    image: "carpetclean.png",
+    image: "carpetclean.webp",
     title: "Carpet Cleaning",
     description:
       "Revitalize your carpets with Wisdom Clean’s professional carpet cleaning services. We deep clean to remove stains, dirt, and allergens, leaving your carpets fresh, soft, and looking like new.",
   },
   {
-    image: "officeclean.png",
+    image: "officeclean.webp",
     title: "Office Cleaning",
     description:
       "Create a productive, clean, and welcoming environment with Wisdom Clean’s office cleaning services. We ensure your workspace is spotless, hygienic, and organized, helping your team stay focused and perform at their best.",
@@ -54,7 +54,7 @@ const ServicesPage = () => {
             </p>
           </div>
           <img
-            src="/src/assets/people.png"
+            src="/src/assets/people.webp"
             alt="people"
             className="mt-10.25 lg:mt-0 lg:w-139.25"
           />

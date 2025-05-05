@@ -77,7 +77,7 @@ const ReviewPage = () => {
             </p>
           </div>
           <img
-            src="/src/assets/people.png"
+            src="/src/assets/people.webp"
             alt="people"
             className="mt-20.25 lg:mt-0 lg:w-139.25"
           />

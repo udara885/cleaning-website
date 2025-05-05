@@ -44,7 +44,7 @@ const GalleryPage = () => {
             </p>
           </div>
           <img
-            src="/src/assets/people.png"
+            src="/src/assets/people.webp"
             alt="people"
             className="mt-5.25 lg:mt-0 lg:w-139.25"
           />

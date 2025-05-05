@@ -31,7 +31,7 @@ const AboutPage = () => {
             </p>
           </div>
           <img
-            src="/src/assets/people.png"
+            src="/src/assets/people.webp"
             alt="people"
             className="hidden w-139.25 lg:block"
           />
@@ -56,7 +56,7 @@ const AboutPage = () => {
         </div>
         <div className="mt-9.5 lg:mt-23.25 lg:flex lg:items-center lg:gap-4.25">
           <img
-            src="/src/assets/meet.png"
+            src="/src/assets/meet.webp"
             alt="meeting"
             className="h-auto max-w-full lg:w-148.25"
           />
@@ -79,7 +79,7 @@ const AboutPage = () => {
         </div>
         <div className="mt-[3.125rem] lg:mt-30 lg:flex lg:flex-row-reverse lg:items-center lg:gap-9">
           <img
-            src="/src/assets/hands.png"
+            src="/src/assets/hands.webp"
             alt="hands together"
             className="h-auto max-w-full lg:w-139.25"
           />
