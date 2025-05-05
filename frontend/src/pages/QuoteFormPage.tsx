@@ -1,24 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useQuoteStore } from "../store/quote"
 import toast from "react-hot-toast"
-
-interface FormData {
-  companyName: string
-  contactPerson: string
-  phoneNumber: string
-  email: string
-  serviceAddress: string
-  serviceType: string[]
-  frequency: string
-  propertyType: string
-  squareFootage: string
-  bedrooms: string
-  bathrooms: string
-  additionalAreas: string
-  specialRequests: string
-  startDate: string
-  preferredTime: string
-}
+import { Quote } from "../types/types"
 
 const serviceTypes = [
   "Residential Cleaning",
@@ -46,11 +29,11 @@ const QuoteFormPage = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>()
+  } = useForm<Quote>()
 
   const { addQuote } = useQuoteStore()
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
+  const onSubmit: SubmitHandler<Quote> = async (data) => {
     await toast.promise(addQuote(data), {
       loading: "Submitting your quote.",
       success: (res) => {
