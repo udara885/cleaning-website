@@ -1,12 +1,5 @@
 import { IoMdStar } from "react-icons/io"
-
-interface Review {
-  firstName: string
-  lastName: string
-  rating: number
-  comment: string
-  createdAt: string
-}
+import { Review } from "../types/types"
 
 const ReviewCard2 = ({ review }: { review: Review }) => {
   return (
