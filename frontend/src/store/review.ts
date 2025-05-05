@@ -1,12 +1,5 @@
 import { create } from "zustand"
-
-interface Review {
-  firstName: string
-  lastName: string
-  comment: string
-  rating: number
-  createdAt: string
-}
+import { Review } from "../types/types"
 
 interface ReviewState {
   reviews: Review[]
