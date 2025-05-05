@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import ReviewCard from "../components/ReviewCard"
 import Footer from "../components/Footer"
 import { Link } from "react-router"
+import { useReviewStore } from "../store/review"
 
 const reasons = [
   {
@@ -68,6 +69,8 @@ const HomePage = () => {
 
   const [currentLogo, setCurrentLogo] = useState(0)
 
+  const { getReviews, reviews } = useReviewStore()
+
   useEffect(() => {
     const interval = setInterval(() => {
       const maxLogos = 6
@@ -79,11 +82,18 @@ const HomePage = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const maxSlides = 3
+      const maxSlides = reviews.length
       setCurrentSlide((prev) => (prev === maxSlides - 1 ? 0 : prev + 1))
     }, 3000)
     return () => clearInterval(interval)
-  }, [])
+  }, [reviews.length])
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      await getReviews()
+    }
+    fetchReviews()
+  }, [getReviews])
 
   return (
     <div className="h-screen w-full text-[#001E3D]">
@@ -276,15 +286,15 @@ const HomePage = () => {
                       : `translateX(-${currentSlide * 107}%)`,
                 }}
               >
-                {[...Array(3)].map((_, index) => (
+                {reviews.map((review, index) => (
                   <div key={index} className="min-w-full">
-                    <ReviewCard />
+                    <ReviewCard review={review} />
                   </div>
                 ))}
               </div>
             </div>
             <div className="flex w-full items-center justify-center gap-2 pt-[1.125rem]">
-              {[...Array(3)].map((_, index) => (
+              {[...Array(reviews.length)].map((_, index) => (
                 <div
                   key={index}
                   onClick={() => setCurrentSlide(index)}
